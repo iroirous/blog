@@ -1,33 +1,19 @@
 import React, { Component } from 'react';
-import remark from 'remark';
-import reactRenderer from 'remark-react';
 import './App.css';
+import Article from './components/Article.js';
+import { Route, HashRouter, Switch } from 'react-router-dom';
+import ArticleList from './components/ArticleList';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {markdown: "", title: "これはテスト用の記事です"};
-    let that = this;
-    fetch('./article/test.md').then((r) => r.text()).then((text) => {
-      that.setState({
-        markdown: text
-      });
-    });
-  }
-
   render() {
-    const processor = remark().use(reactRenderer);
-
     return (
       <div className="App">
-        <article>
-          <div className="header">
-            <h1>{this.state.title}</h1>
-          </div>
-          <div className="content">
-            {processor.processSync(this.state.markdown).contents}
-          </div>
-        </article>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/" component={ArticleList} />
+            <Route path="/article/:path" component={Article} />
+          </Switch>
+        </HashRouter>
       </div>
     );
   }

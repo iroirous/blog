@@ -35,12 +35,16 @@ h1, h2, h3, h4, h5, h6{
   font-weight: normal;
 }
 
-.header h1{
-  font-size: 3em;
+.articleHeader{
   text-align: center;
 }
 
-.content h1, h2{
+.articleHeader h1{
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+.content h1, .content h2{
   border-bottom: 1px solid silver;
   margin-top: 30px;
 }
