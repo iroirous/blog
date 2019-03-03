@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import style from './ArticleList.css';
+import Header from './Header.js';
+import { list } from '../articlelist.js';
 
 class ArticleList extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
-        this.state = {articleList: []};
-        fetch('./articlelist.json').then((r) => r.text()).then((json) => {
-            this.setState({
-                articleList: JSON.parse(json),
-                property: null
-            });
-        });
+        this.state = {articleList: list, property: null};
     }
 
     render(){
         return(
             <div className="ArticleList">
-                <h1>Iroirous Blog (仮)</h1>
+                <Header />
                 {
                     this.state.articleList.map((item, idx) => 
                         <div key={idx} className="ArticleListItem">

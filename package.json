@@ -11,8 +11,8 @@
     "remark-react": "^5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node generateArticlelist.js && react-scripts start",
+    "build": "node generateArticlelist.js && npreact-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

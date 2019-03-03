@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
-
+import Header from './Header.js';
 
 class Article extends Component{
     constructor({match}){
@@ -9,8 +9,7 @@ class Article extends Component{
         this.state = {
             markdown: "",
             property: {},
-            title: "これはテスト用の記事です",
-            filepath: "./article/" + match.params.path + ".md"
+            filepath: "./article/" + match.params.path
         };
         this.getMarkdownData();
     }
@@ -20,7 +19,7 @@ class Article extends Component{
         if(nextProps.location !== this.props.location){
             const that = this;
             this.setState({
-                filepath: "./article/" + nextProps.match.params.path + ".md"
+                filepath: "./article/" + nextProps.match.params.path
             }, () => {
                 that.getMarkdownData();
             })
@@ -31,7 +30,7 @@ class Article extends Component{
         let that = this;
         const processor = remark().use(reactRenderer);
         fetch(this.state.filepath).then((r) => r.text()).then((text) => {
-            const property = text.match(/<!--([\s\S]+)-->/);
+            const property = text.match(/<!--([\s\S]+?)-->/);
             const htmldata = processor.processSync(text).contents;
             that.setState({
                 markdown: htmldata,
@@ -43,15 +42,16 @@ class Article extends Component{
     render() {
         return (
             <div className="ArticlePage">
-            <article>
-                <div className="articleHeader">
-                    <h1>{this.state.property.title}</h1>
-                    <p>{this.state.property.date}</p>
-                </div>
-                <div className="content">
-                    {this.state.markdown}
-                </div>
-            </article>
+                <Header />
+                <article>
+                    <div className="articleHeader">
+                        <h1>{this.state.property.title}</h1>
+                        <p>{this.state.property.date}</p>
+                    </div>
+                    <div className="content">
+                        {this.state.markdown}
+                    </div>
+                </article>
             </div>
         );
     }

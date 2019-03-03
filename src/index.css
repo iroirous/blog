@@ -9,15 +9,15 @@ body {
   font-weight: 300;
 }
 
-a{
+article a{
   color: #444;
 }
 
-a:hover{
+article a:hover{
   color: #777;
 }
 
-a:visited{
+article a:visited{
   color: #888;
 }
 
@@ -33,24 +33,6 @@ code {
 
 h1, h2, h3, h4, h5, h6{
   font-weight: normal;
-}
-
-.articleHeader{
-  text-align: center;
-}
-
-.articleHeader h1{
-  font-size: 3em;
-  margin-bottom: 0;
-}
-
-.content h1, .content h2{
-  border-bottom: 1px solid silver;
-  margin-top: 30px;
-}
-
-.content h1{
-  font-size: 1.8em;
 }
 
 pre{
