@@ -9,6 +9,10 @@ body {
   font-weight: 300;
 }
 
+article{
+  margin-bottom: 30px;
+}
+
 article a{
   color: #444;
 }
@@ -33,6 +37,10 @@ code {
 
 h1, h2, h3, h4, h5, h6{
   font-weight: normal;
+}
+
+img{
+  width: 100%;
 }
 
 pre{

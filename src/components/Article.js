@@ -40,6 +40,7 @@ class Article extends Component{
     }
 
     render() {
+        document.title = this.state.property.title + " - Iroirous Blog";
         return (
             <div className="ArticlePage">
                 <Header />

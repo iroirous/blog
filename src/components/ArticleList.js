@@ -8,6 +8,7 @@ class ArticleList extends Component{
         super(props);
 
         this.state = {articleList: list, property: null};
+        document.title = "Iroirous Blog";
     }
 
     render(){
