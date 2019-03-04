@@ -89,7 +89,7 @@ header ul a:visited{
        ArticleList
 ****************************/
 .ArticleList{
-  padding: 30px;
+  padding: 0 30px 30px 30px;
 }
 
 .ArticleList a{
