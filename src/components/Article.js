@@ -3,6 +3,11 @@ import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Header from './Header.js';
 
+// 記事内のリンクを新しいタブで開くようにする
+function LinkRenderer(props){
+    return <a href={props.href} target="noopener noreferrer">{props.children}</a>
+}
+
 class Article extends Component{
     constructor({match}){
         super();
@@ -22,13 +27,13 @@ class Article extends Component{
                 filepath: "./article/" + nextProps.match.params.path
             }, () => {
                 that.getMarkdownData();
-            })
+            });
         }
     }
 
     getMarkdownData(){
         let that = this;
-        const processor = remark().use(reactRenderer);
+        const processor = remark().use(reactRenderer, {remarkReactComponents: {a:LinkRenderer}});
         fetch(this.state.filepath).then((r) => r.text()).then((text) => {
             const property = text.match(/<!--([\s\S]+?)-->/);
             const htmldata = processor.processSync(text).contents;

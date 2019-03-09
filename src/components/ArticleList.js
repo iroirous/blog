@@ -16,7 +16,7 @@ class ArticleList extends Component{
             <div className="ArticleList">
                 <Header />
                 {
-                    this.state.articleList.map((item, idx) => 
+                    this.state.articleList.reverse().map((item, idx) => 
                         <div key={idx} className="ArticleListItem">
                             <Link to={"./article/" + item.path}>
                                 <h2>{item.title}</h2>

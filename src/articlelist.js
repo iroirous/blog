@@ -1,1 +1,1 @@
-export const list = [{"title":"オンボロノートPCとRaspberry Piで作るマイクラサーバ","date":"2019-03-04","description":"Sandy Bridge版のオンボロPentiumノートPCとRaspberry Piを連携させて、マイクラサーバを作った話です。","path":"20190304_mcserver.md"}]
+export const list = [{"title":"オンボロノートPCとRaspberry Piで作るマイクラサーバ","date":"2019-03-04","description":"Sandy Bridge版のオンボロPentiumノートPCとRaspberry Piを連携させて、マイクラサーバを作った話です。","path":"20190304_mcserver.md"},{"title":"HP ENVY x360 13(Ryzen3)購入レビュー","date":"2019-03-12","description":"","path":"20190311_hpenvy360.md"}]
