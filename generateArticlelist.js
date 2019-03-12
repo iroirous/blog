@@ -31,5 +31,5 @@ fs.readdir(dir, function(err, files){
             }
         }
     }
-    fs.writeFileSync('./src/articlelist.js', "export const list = " + JSON.stringify(output));
+    fs.writeFileSync('./src/articlelist.js', "export const list = " + JSON.stringify(output.reverse()));
 });
