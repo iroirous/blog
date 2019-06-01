@@ -71,7 +71,7 @@ grub > boot
 
 下記のようなKernel Panicが表示されます。多分正常に実行できてます。ここから先のプログラムを作ることもできるそうですが、今回はここまで。
 
-![カーネルパニック](./images/01/linuxKernelPanic.png)
+![カーネルパニック](./images/01/linuxKernelPanic.PNG)
 
 # ゲストOSのGRUBを吹っ飛ばした！！！
 
