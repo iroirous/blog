@@ -33,10 +33,14 @@ class Article extends Component{
 
     getMarkdownData(){
         let that = this;
-        const processor = remark().use(reactRenderer, {remarkReactComponents: {a:LinkRenderer}});
+        const processor = remark().use(reactRenderer, {
+            remarkReactComponents: {
+                a: LinkRenderer
+            }
+        });
         fetch(this.state.filepath).then((r) => r.text()).then((text) => {
             const property = text.match(/<!--([\s\S]+?)-->/);
-            const htmldata = processor.processSync(text).contents;
+            const htmldata = processor.processSync(text, {gfm: true}).contents;
             that.setState({
                 markdown: htmldata,
                 property: JSON.parse(property[1])
