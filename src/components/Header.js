@@ -8,7 +8,7 @@ class Header extends Component{
               <h1><Link to="/">Iroirous Blog</Link></h1>
               <ul>
                 <li><a href="https://iroirous.github.io/" target="_blank" rel="noopener noreferrer">Homepage</a></li>
-                <li><a href="https://twitter.com/us_irir" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                <li><a href="https://twitter.com/iroirous" target="_blank" rel="noopener noreferrer">Twitter</a></li>
                 <li><a href="https://github.com/iroirous" target="_blank" rel="noopener noreferrer">Github</a></li>
               </ul>
             </header>

@@ -81,7 +81,9 @@ http://niwatako.info/20101206/article629.html
 
 # vdiファイルのマウントの仕方
 
-qemu-nbdを使う。http://www.ubuntugeek.com/how-to-mount-virtualbox-drive-imagevdi-on-ubuntu-16-10.htmlを参考にする。
+qemu-nbdを使う。
+
+http://www.ubuntugeek.com/how-to-mount-virtualbox-drive-imagevdi-on-ubuntu-16-10.htmlを参考にする。
 
 ```
 sudo modprobe nbd
