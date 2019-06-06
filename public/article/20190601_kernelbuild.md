@@ -48,15 +48,16 @@ sudo apt install fcitx-mozc
 # Linuxカーネルのビルド
 
 ここからはGMO AD Partners様のTech Blogを参考に進めていく。
+
 https://techblog.gmo-ap.jp/2016/05/31/本家linux-カーネルをコンパイルして仮想pcで起動する/
 
-makeする際に必要な以下のパッケージを予めインストールしておく（インストールしないとmakeの途中でエラーで中断する）。ビルドするLinuxディストリビューションのインストール構成によっては更に沢山のパッケージを入れる必要があると思います。
+makeする際に必要な以下のパッケージを予めインストールしておく（インストールしないとmakeの途中でエラーで中断する）。ビルドする際に使用するLinuxディストリビューションのインストール構成によっては更に沢山のパッケージを入れる必要があると思います。
 
 flex, bison, libssl-dev libelf-dev 
 
 # grubブートローダのインストール
 
-CentOSのレスキューモードからはgrubがインストールできなかった（grub2-installでmodinfo.shが無いと怒られた）ので、Ubuntu系OSのLiveイメージ（ISO）を使う。Liveイメージから起動して、GMO様の解説の通りにmountしたりgrub-installしたりして、GRUBインストールを行う。但し、Ubuntu環境ではgrub2-installは無いので、grub-installを使う。
+CentOSのレスキューモードからはgrubがインストールできなかった（grub2-installでmodinfo.shが無いと怒られてしまい解決できなかった）ので、Ubuntu系OSのLiveイメージ（ISO）を使う。Liveイメージから起動して、GMO様の解説の通りにmountしたりgrub-installしたりして、GRUBインストールを行う。但し、Ubuntu環境ではgrub2-installは無いので、grub-installを使う。
 
 Installation finished. No error reportedが表示されたらOK。
 
@@ -69,7 +70,13 @@ grub > linux /bzImage
 grub > boot
 ```
 
-下記のようなKernel Panicが表示されます。多分正常に実行できてます。ここから先のプログラムを作ることもできるそうですが、今回はここまで。
+下記のようなKernel Panicが表示されます。
+
+~~多分正常に実行できてます。~~
+
+（追記）initを実行する前に、initramfsなどによってシステム内の基本的なツール群を読み込む必要があるそうです。そのため、今回はinitを実行開始するよりも前の段階でKernel Panicにより停止しています。
+
+ここから先のプログラム（initなど）を作ることもできるそうですが、今回はここまで。
 
 ![カーネルパニック](./images/01/linuxKernelPanic.PNG)
 
@@ -81,7 +88,7 @@ http://niwatako.info/20101206/article629.html
 
 # vdiファイルのマウントの仕方
 
-qemu-nbdを使う。
+qemu-nbdを使ってマウントし、内部のデータを編集する。目的が達成できたらアンマウントを忘れずに。
 
 http://www.ubuntugeek.com/how-to-mount-virtualbox-drive-imagevdi-on-ubuntu-16-10.htmlを参考にする。
 
