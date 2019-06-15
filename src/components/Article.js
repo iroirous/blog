@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
+import Highlight from 'react-highlight';
 import Header from './Header.js';
 
 // 記事内のリンクを新しいタブで開くようにする
@@ -35,6 +36,7 @@ class Article extends Component{
         let that = this;
         const processor = remark().use(reactRenderer, {
             remarkReactComponents: {
+                code: Highlight,
                 a: LinkRenderer
             }
         });
