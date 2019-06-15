@@ -50,9 +50,9 @@
 
 ```JavaScript
 Array.prototype.forEach.call(document.querySelectorAll('ytd-grid-video-renderer'), (el, index) => {
-    if(!el.querySelector('#buttons').hasChildNodes() && el.querySelectorAll('ytd-badge-supported-renderer > .badge').length == 0){
+    if(!el.querySelector('#buttons').hasChildNodes() && el.querySelectorAll('ytd-badge-supported-renderer > .badge-style-type-live-now').length == 0){
         el.parentNode.removeChild(el);
-    }
+    } else if()
 });
 ```
 
