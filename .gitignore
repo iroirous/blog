@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Article Data
+/public/article/*
+/public/images/*
+/src/articlelist.js
